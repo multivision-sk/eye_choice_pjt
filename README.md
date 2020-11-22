@@ -11,4 +11,4 @@
 - 얼굴형에 맞는 원하는 종류의 안경을 추천해준다. 
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kmQpt9lR_JY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Video Label](http://img.youtube.com/vi/kmQpt9lR_JY/0.jpg)](https://youtu.be/kmQpt9lR_JY)
