@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>eyeChoice!</title>
+        <meta name="description" content="얼굴형과 선호에따른 안경 초이스!">
+        <link href="../static/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!--구글폰트-->
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&display=swap"
+              rel="stylesheet">
+        <meta name="viewport" content="width=device-width" , initial-scale="1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="eye-choice">
+        <meta property="og:description" content="얼굴형에따른 당신이 원하는 안경 초이스">
+        <meta property="og:image" content="{{ url_for('static', filename='suzzy.jpg') }}">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+
+
+        <script>
+
+            $(document).ready(function () {
+
+                showGLS();
+            });
+
+
+            function inputGLS() {
+                let glass = $('#name').val();
+                var radioVal = $('input[name="face"]:checked').val();
+
+
+                if (radioVal == "circle") {
+                    glass_form = "사각"+ glass ;
+                    console.log(glass_form) ;
+                } else if (radioVal == "rectangle") {
+                    glass_form = "둥근" + glass;
+                    console.log(glass_form) ;
+                } else {
+                    glass_form = glass;
+                    console.log(glass_form) ;
+                }
+
+
+                if (glass == "") {
+                    alert('원하는 안경을 입력해주세요!');
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/glassin",
+                    data: {'search_input': glass_form},
+                    success: function (response) {
+                        if (response["result"] == "success") {
+                            location.reload();
+                        }
+                    }
+                });
+
+            }
+
+
+            function showGLS() {
+                $('#cards-box').empty();
+                $.ajax({
+                    type: "GET",
+                    url: "/glassout",
+                    data: {},
+                    success: function (response) {
+                        if (response["result"] == "success") {
+
+                            let style_title = response['styles'];
+                            for (let i = 0; i < style_title.length; i++) {
+                                let style_list = style_title[i];
+
+                                let style_url = style_list['style_url']
+                                let url = style_list['img_url']
+
+
+                                let tempHtml = ` <div class="card">
+                   <a href="${url}"> <img class="card-img-top"
+                         src="${style_url}"
+                         alt="No Image"></a>
+                </div> `
+
+
+                                $('#cards-box').append(tempHtml);
+
+
+                            }
+                        } else {
+                            alert("서버 오류!")
+                        }
+                    }
+                });
+
+            }
+        </script>
+
+
+    </head>
+
+    <body>
+        <div id="contact" class="big-bg" style="background-image: url('../static/suzzy.jpg')">
+            <header class="page-header">
+                <h1>안경 추천 프로젝트</h1>
+                <h5>세상을 보는 마음의 창</h5>
+            </header>
+
+        </div>
+
+        <div class="title">
+            <div>
+                <textarea id="name" placeholder="안경을 선택해주세요&#13;&#10;(ex.뿔테안경vs메탈안경)"></textarea>
+
+
+            </div>
+
+            <div class="text-info" id="face-info">
+                얼굴형 :
+                <input type="radio" name="face" value="circle">둥근형
+                <input type="radio" name="face" value="rectangle">각진형
+                <input type="radio" name="face"  value="egg">계란형
+
+            </div>
+
+            <div class="btn">
+                <input type="submit" class="button" value="입력" onclick="inputGLS()">
+            </div>
+
+        </div>
+
+
+        <div id="cards-box" class="card-columns">
+            <div class="card">
+            </div>
+        </div>
+
+
+        <footer>
+            <div class="wrapper">
+                <p><small>&copy; 2020 SKK</small></p>
+            </div>
+        </footer>
+    </body>
+
+</html>

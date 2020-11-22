@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+html{
+    font-size : 100% ;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
+    line-height: 1.7;
+    color : #000 ;
+}
+
+
+.button {
+    font-size: 1rem;
+    background: #0bd;
+    color:#fff;
+    border-radius: 5px;
+    padding: 18px 32px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+   margin-left: 10px;
+}
+
+.button:hover {
+    background: #0090aa ;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+
+footer {
+    background:#432;
+    text-align: center;
+    padding: 26px 0;
+}
+
+footer p {
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+header {
+    float: right;
+    margin-right: 30px; 
+    margin-top: 20px;
+    color: #fff;
+    
+}
+
+
+#contact {
+    /*background-image: url("../static/suzzy.jpg");*/
+    min-height: 100vh;
+    color: #fff;
+    
+}
+
+.wrapper-title {
+    float: right;
+    margin-right: 30px;
+}
+
+.title div {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+
+.title input btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+label{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input[type="text"],
+textarea{
+    background: rgba(128,128,128,.5);
+    border: 1px #fff solid;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+
+textarea{
+    width: 100%;
+    max-width: 500px;
+    height: 6rem;
+    text-align: center;
+}
+
+input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#container {
+    margin: 0px auto;
+    width: 500px;
+    height: 375px;
+    border: 10px #333 solid;
+}
+
+.face-info {
+    float: left;
+    margin-left: 300px;
+}
+
+
+
+
+
+/*모바일 버전*/
+
+@media (max-width: 600px) {
+
+    textarea {
+        max-width: 100% ;
+    }
+
+    .wrapper
+    {
+        flex-direction: column;
+    }
+
+    .card-columns {
+        width: 100%;
+    }
+
+    .card-columns{
+        margin-bottom: 30px;
+    }
+}
