@@ -11,4 +11,6 @@
 - 얼굴형에 맞는 원하는 종류의 안경을 추천해준다. 
 
 
+## 비디오 링크 
+
 [![Video Label](http://img.youtube.com/vi/kmQpt9lR_JY/0.jpg)](https://youtu.be/kmQpt9lR_JY)
