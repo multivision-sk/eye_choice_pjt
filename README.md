@@ -11,9 +11,6 @@
 - 얼굴형에 맞는 원하는 종류의 안경을 추천해준다. 
 
 
-<video controls width="250">
-
-    <source src="/static/eye_choice.mp4"
-            type="video/mp4">
+<video src="/static/eye_choice.mp4" width="250">
     Sorry, your browser doesn't support embedded videos.
 </video>
