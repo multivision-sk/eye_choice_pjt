@@ -1,5 +1,3 @@
-<img src="/static/suzzy.jpg" height="100"/>
-
 # eye choice!   
 
 > 프로젝트 간략 소개 한 문장 
