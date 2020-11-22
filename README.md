@@ -10,3 +10,5 @@
 - 얼굴형을 선택한다. 
 - 얼굴형에 맞는 원하는 종류의 안경을 추천해준다. 
 
+<video src="/static/eye_choice.mp4" height="200" >
+
